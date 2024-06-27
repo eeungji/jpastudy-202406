@@ -33,12 +33,30 @@ public class Department {
            (리스트에서 사원을 지운다고 실제 디비에서 사원이 삭제되지는 않는다는 말)
            단순히 읽기전용 (조회전용)으로만 사용하는 것이다.
         - mappedBy에는 상대방 엔터티에 @ManyToOne에 대응되는 필드명을 꼭 적어야 함
+
+        - CascadeType
+        * PERSIST : 부모가 갱신되면 자식도 같이 갱신된다
+        - 부모의 리스트에 자식을 추가하거나 제거하면 데이터베이스에도 반영된다.
+        * REMOVE : 부모가 제거되면 자식도 같이 제거된다.
+        - ON DELETE CASCADE
+        * ALL : 위의 내용을 전부 포함
      */
 
     //1대다(employees) / 상대방은 나를 뭐라고 매핑했니(department)로 연결되어 있음.
     //LAZY가 기본값
-    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "department", orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Employee> employees = new ArrayList<>();
+
+    public void removeEmployee(Employee employee) {
+        this.employees.remove(employee);
+        employee.setDepartment(null);
+    }
+
+    public void addEmployee(Employee employee) {
+        this.employees.add(employee);
+        employee.setDepartment(this);
+    }
 
 }
 //데이터베이스였으면 사원한테 부서번호를 줌
