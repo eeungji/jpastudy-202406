@@ -44,7 +44,7 @@ public class Department {
 
     //1대다(employees) / 상대방은 나를 뭐라고 매핑했니(department)로 연결되어 있음.
     //LAZY가 기본값
-    @OneToMany(mappedBy = "department", orphanRemoval = true,
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY, orphanRemoval = true,
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Employee> employees = new ArrayList<>();
 
