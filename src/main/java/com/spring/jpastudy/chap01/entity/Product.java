@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
-@ToString(exclude = "nickName") //닉네임을 제외한다
+@ToString(exclude = "nickName") //닉네임을 제외한다(닉네임 빼줘!) 중요중요!!
 @EqualsAndHashCode(of = "id") //of 설정 -> id만 가지고 판단해라(최적화)
                               // id가 1이면 같은 객체다
 @NoArgsConstructor

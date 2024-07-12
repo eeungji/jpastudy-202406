@@ -21,8 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Rollback
 class ProductRepositoryTest {
 
-    @BeforeEach
-        //테스트 전에 실행할 코드, 넣어 놓고 시작, 테스트 끝나면 롤백 됨.
+    @BeforeEach //테스트 전에 실행할 코드, 넣어 놓고 시작, 테스트 끝나면 롤백 됨.
     void insertBeforeTest() {
         Product p1 = Product.builder()
                 .name("아이폰")
@@ -82,9 +81,10 @@ class ProductRepositoryTest {
         //then //널처리를 해줌 Optional
         //우릭 만약에 옵셔널 안쓰면 조회가 안되면 널이 들어옴
         //그래서 if문으로 널처리를 하는데
+        //orElse를 많이 씀
         Product foundProduct = productRepository.findById(id)
-                .orElse(null);
-        assertNull(foundProduct);
+                .orElse(null); //<- 조회가 안됐을 경우 null을 주겠다
+        assertNull(foundProduct); //foundProduct 라고 단언할 수 있다
     }
 
 
@@ -99,7 +99,7 @@ class ProductRepositoryTest {
 
         //then
         assertEquals("구두", foundProduct.getName());
-        System.out.println("foundProduct = " + foundProduct);
+        System.out.println("\n\n\nfoundProduct = " + foundProduct + "\n\n\n\n");
     }
 
     @Test
