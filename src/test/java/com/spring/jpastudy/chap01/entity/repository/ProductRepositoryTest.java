@@ -52,7 +52,7 @@ class ProductRepositoryTest {
 
     }
 
-    @Autowired
+    @Autowired //레파지토리 주입
     ProductRepository productRepository;
 
     @Test
@@ -61,14 +61,14 @@ class ProductRepositoryTest {
         //given
         Product product = Product.builder()
                 .name("떡볶이")
-//                .price(120000)
-//                .category(Product.Category.FASHION)
+//              .price(120000)
+//              .category(Product.Category.FASHION)
                 .build();
         //when
         //insert후 저장된 데이터의 객체를 반환
         Product saved = productRepository.save(product);
         //then
-        //저장이 잘되면 notnull이라고 주장 가능
+        //저장이 잘되면 notnull(not이 아닐 것이다)이라고 주장 가능
         assertNotNull(saved);
     }
 

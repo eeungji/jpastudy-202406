@@ -28,6 +28,6 @@ spring:
         com:
           spring:
             jpastudy: debug
-          org:
-              hibernate:
-                SQL: debut
+        org:
+            hibernate:
+              SQL: debut
