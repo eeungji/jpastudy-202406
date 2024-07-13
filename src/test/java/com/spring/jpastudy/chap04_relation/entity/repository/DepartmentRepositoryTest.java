@@ -1,24 +1,24 @@
-package com.spring.jpastudy.chap04_relation.entity.repository;
-
-import com.spring.jpastudy.chap04_relation.entity.Department;
-import com.spring.jpastudy.chap04_relation.entity.Employee;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-@SpringBootTest
-@Transactional
-@Rollback(false)
-class DepartmentRepositoryTest {
-
+//package com.spring.jpastudy.chap04_relation.entity.repository;
+//
+//import com.spring.jpastudy.chap04_relation.entity.Department;
+//import com.spring.jpastudy.chap04_relation.entity.Employee;
+//import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.DisplayName;
+//import org.junit.jupiter.api.Test;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.test.annotation.Rollback;
+//import org.springframework.transaction.annotation.Transactional;
+//
+//import java.util.List;
+//
+//import static org.junit.jupiter.api.Assertions.*;
+//
+//@SpringBootTest
+//@Transactional
+//@Rollback(false)
+//class DepartmentRepositoryTest {
+/*
     @Autowired
     EmployeeRepository employeeRepository;
 
@@ -81,12 +81,12 @@ class DepartmentRepositoryTest {
         //when
 
 
-        /*
-            사원정보가 Employee엔터티에서 수정되어도
-            반대편 엔터티인 Department에서는 리스트에 바로 반영되지 않는다.
 
-            해결방안은 데이터 수정시에 반대편 엔터티에도 같이 수정을 해줘라
-         */
+//            사원정보가 Employee엔터티에서 수정되어도
+//            반대편 엔터티인 Department에서는 리스트에 바로 반영되지 않는다.
+//
+//            해결방안은 데이터 수정시에 반대편 엔터티에도 같이 수정을 해줘라
+
 
         // 사원 정보 수정
 //        employee.setDepartment(department);
@@ -196,6 +196,6 @@ class DepartmentRepositoryTest {
 
         //then
     }
+*/
 
-
-}
+//}

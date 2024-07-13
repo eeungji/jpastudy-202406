@@ -13,7 +13,7 @@ public interface StudentPageRepository extends JpaRepository<Student, String> {
     // 전체조회 상황에서 페이징 처리하기
 //    Page<Student> findAll(Pageable pageable);
 
-    // 검색 + 페이징
+    // 검색 + 페이징 , Page<Student>가 orderBy limit 까지 해줌.
     Page<Student> findByNameContaining(String name, Pageable pageable);
 
 //    @Query("")

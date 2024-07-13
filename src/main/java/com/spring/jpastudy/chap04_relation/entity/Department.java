@@ -40,7 +40,7 @@ public class Department {
         * REMOVE : 부모가 제거되면 자식도 같이 제거된다.
         - ON DELETE CASCADE
         * ALL : 위의 내용을 전부 포함
-     */
+
 
     //1대다(employees) / 상대방은 나를 뭐라고 매핑했니(department)로 연결되어 있음.
     //LAZY가 기본값
@@ -57,6 +57,8 @@ public class Department {
         this.employees.add(employee);
         employee.setDepartment(this);
     }
+
+     */
 
 }
 //데이터베이스였으면 사원한테 부서번호를 줌
