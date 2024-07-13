@@ -27,7 +27,6 @@ public class Student {
     @Column(name = "stu_name", nullable = false)
     private String name;
 
-
     private String city;
 
     private String major;
