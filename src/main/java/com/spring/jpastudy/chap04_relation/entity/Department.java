@@ -8,7 +8,7 @@ import java.util.List;
 
 @Setter
 @Getter
-@ToString(exclude = "employees")
+@ToString(exclude = "employees") //employees 제외
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,6 +24,14 @@ public class Department {
 
     @Column(name = "dept_name", nullable = false)
     private String name;
+
+    // 부서 : 사원 = 1 : N
+    @OneToMany(mappedBy = "department", fetch = FetchType.EAGER) //상대방은 나를 뭐라고 매핑했니? => employee 에 department로 매핑되어 있다.
+    private  List<Employee> employees = new ArrayList<>(); //nullpointexception 방지를 위해 초기화시켜줌. 보통
+
+
+    //@ManyToOne 에서는 기본값이 EAGER (무조건 조인)
+    //@OneToMany 에서는 기본값이 LAZE (조인 안함)
 
     /*
         - 양방향 매핑은 데이터베이스와 달리 객체지향 시스템에서 가능한 방법으로
