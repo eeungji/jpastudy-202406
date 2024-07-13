@@ -11,6 +11,53 @@ import java.util.Optional;
 
 public interface StudentRepository extends JpaRepository<Student, String> {
 
+// 쿼리메서드 : 메서드 이름에 특별한 규칙을 적용하면 SQL이 규칙에 맞게 생성됨
+    List<Student> findByName(String name); //단일조회가 아니기 때문에 Optional X
+
+    //조건 2개일 경우(도시이름과, 전공으로 학생 조회)
+    List<Student> findByCityAndMajor(String city, String major);
+
+    // where major like'%major%' : major 포함
+    List<Student> findByMajorContaining(String major);
+
+    // where major like 'major%' :
+    List<Student> findByMajorStartingWith(String major);
+
+    // where major like '%major'
+    List<Student> findByMajorEndingWith(String major);
+
+    // where age <= ? : 주어진 나이 이하인 학생들을 찾는데 사용
+//    List<Student> findByAgeLessThanEqual(int age);
+
+    // 순수한 sql 사용, native sql 사용하기, db에 stu_name, 두번째 파라미터 중요
+    @Query(value = "SELECT * FROM tbl_student WHERE stu_name = :snm OR city = :city", nativeQuery = true)
+    List<Student> getStudentByNameOrCity(@Param("snm") String name, @Param("city") String city);
+
+    @Query(value = "SELECT * FROM tbl_student WHERE stu_name = ?1 OR city = ?2", nativeQuery = true)
+    List<Student> getStudentByNameOrCity2(String name, String city);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     //쿼리 메서드라는 문법 사용 가능
     //쿼리 메서드 : 메서드에 이름에 특별한 규칙을 적용하면 SQL이 규칙에 맞게 생성됨
 
@@ -51,8 +98,6 @@ public interface StudentRepository extends JpaRepository<Student, String> {
         ex) native - SELECT * FROM tbl_student WHERE stu_name = ?
             JPQL   - SELECT st FROM Student AS st WHERE st.name = ?
 
-     */
-
 
 
 
@@ -68,10 +113,8 @@ public interface StudentRepository extends JpaRepository<Student, String> {
     @Modifying // SELECT가 아니면 무조건 붙이기
     @Query("DELETE FROM Student s WHERE s.name = ?1 AND s.city = ?2")
     void deleteByNameAndCityWithJPQL(String name, String city);
-
-
 }
-
+*/
 
 
 
