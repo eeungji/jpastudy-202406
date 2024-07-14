@@ -21,6 +21,7 @@ public class Group {
 
     private String groupName;
 
+    //mappedBy 아이돌쪽에서 나를 뭐라고 부르고 있는지
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Idol> idols = new ArrayList<>();
 

@@ -32,14 +32,14 @@ class QueryDslBasicTest {
     @Autowired
     GroupRepository groupRepository;
 
-
     JPAQueryFactory jpaQueryFactory;
 
     // JPA의 CRUD를 제어하는 객체
     @Autowired
     EntityManager em;
 
-    @BeforeEach
+
+  @BeforeEach
     void setUp() {
 
         //given
@@ -61,6 +61,23 @@ class QueryDslBasicTest {
 
     }
 
+    @Test
+    @DisplayName("JPQL로 특정이름의 아이돌 조회하기")
+    void jpqlTest() {
+        //given
+        String jpqlQuery = "SELECT i FROM Idol i WHERE i.idolName = ?1";
+
+        //when
+        em.createQuery(jpqlQuery, Idol.class)
+                .setParameter(1, "가을")
+                .getSingleResult();
+
+        //then
+
+
+    }
+
+  /*
 
     @Test
     @DisplayName("JPQL로 특정이름의 아이돌 조회하기")
@@ -105,5 +122,5 @@ class QueryDslBasicTest {
         System.out.println("\n\n\n\n");
     }
 
-
+*/
 }
