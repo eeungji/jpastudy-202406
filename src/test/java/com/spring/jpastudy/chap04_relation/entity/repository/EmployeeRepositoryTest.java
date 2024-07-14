@@ -26,7 +26,7 @@ class EmployeeRepositoryTest {
     DepartmentRepository departmentRepository;
 
 
-//    @BeforeEach
+    @BeforeEach
     void beforeInsert() {
 
         Department d1 = Department.builder()
