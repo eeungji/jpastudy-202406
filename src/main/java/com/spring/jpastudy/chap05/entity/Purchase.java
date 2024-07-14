@@ -21,8 +21,9 @@ public class Purchase {
     @Column(name = "purchase_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    // 여러개 구매 한명의 user
+    @ManyToOne(fetch = FetchType.LAZY) // fetch = FetchType.LAZY 공식처럼 생각
+    @JoinColumn(name = "user_id") // <= FK
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -9,7 +9,8 @@ import java.util.List;
 
 @Setter
 @Getter
-@ToString(exclude = "purchaseList")
+@ToString
+//        (exclude = "purchaseList")
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,6 +28,7 @@ public class User {
     @Column(name = "user_name")
     private String name;
 
+    // user는 구매를 여러번 할 수 있다. 유저 입장에서 1 : 다
     @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Purchase> purchaseList = new ArrayList<>();
 

@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Setter @Getter
-@ToString(exclude = "purchaseList")
+@ToString
+//        (exclude = "purchaseList")
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
