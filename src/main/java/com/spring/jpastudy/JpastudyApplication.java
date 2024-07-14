@@ -11,4 +11,6 @@ public class JpastudyApplication {
 		SpringApplication.run(JpastudyApplication.class, args);
 	}
 
+
+
 }
