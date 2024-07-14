@@ -21,6 +21,8 @@ public class Idol {
 
     private int age;
 
+    private String gender; // 성별추가
+
     //한 그룹에 여러명의 아이돌이 있음.
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
@@ -30,6 +32,15 @@ public class Idol {
     public Idol(String idolName, int age, Group group) {
         this.idolName = idolName;
         this.age = age;
+        if (group != null) {
+            changeGroup(group);
+        }
+    }
+
+    public Idol(String idolName, int age, String gender, Group group) {
+        this.idolName = idolName;
+        this.age = age;
+        this.gender = gender;
         if (group != null) {
             changeGroup(group);
         }
