@@ -45,8 +45,7 @@ public class Department {
 
     // 부서 : 사원 = 1 : N
     @OneToMany(mappedBy = "department", //상대방은 나를 뭐라고 매핑했니? => employee 에 department로 매핑되어 있다.
-                fetch = FetchType.LAZY,
-                orphanRemoval = true, //삭제 안되고 업데이트만 된 이유 아래 cascadetype 때문
+                fetch = FetchType.LAZY,//삭제 안되고 업데이트만 된 이유 아래 cascadetype 때문
                 cascade = {CascadeType.REMOVE, CascadeType.REMOVE})
     private  List<Employee> employees = new ArrayList<>(); //nullpointexception 방지를 위해 초기화시켜줌. 보통
 

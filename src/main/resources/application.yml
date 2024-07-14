@@ -18,7 +18,8 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        format_sql: true #SQL ?? ??? ??? ??
+        format_sql: true
+        #SQL ?? ??? ??? ??
     database: mysql
 
     # log level setting
